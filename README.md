@@ -4,11 +4,15 @@ Medical report platform where doctors record findings via voice, enter blood tes
 
 ## Setup
 
-### What you need
+### Node.js
 
-- Node.js v18+
-- PostgreSQL v14+
-- Ollama (https://ollama.com/)
+Download and install from https://nodejs.org/ (v18 or later). This includes npm.
+
+Verify:
+```
+node -v
+npm -v
+```
 
 ### Database
 
