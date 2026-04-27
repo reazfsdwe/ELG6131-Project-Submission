@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Noto+Sans:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Claymorphism - Playful Cartoon Style */
+    /* Blue-White as primary, with vibrant accent colors */
+    --background: 190 60% 97%;
+    --foreground: 210 40% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 15%;
+    
+    /* Primary Blue - Main Color */
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Vibrant Secondary Colors */
+    --secondary: 270 80% 65%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 190 40% 90%;
+    --muted-foreground: 210 30% 40%;
+    
+    --accent: 340 90% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Soft borders */
+    --border: 199 60% 80%;
+    --input: 199 60% 80%;
+    --ring: 199 89% 48%;
+    
+    /* Claymorphism - Large rounded corners */
+    --radius: 1.5rem;
+    
+    /* Claymorphism Colors */
+    --clay-blue: #3B82F6;
+    --clay-light-blue: #60A5FA;
+    --clay-white: #FEFEFE;
+    --clay-shadow-light: rgba(255, 255, 255, 0.8);
+    --clay-shadow-dark: rgba(174, 190, 220, 0.5);
+    --clay-pink: #F472B6;
+    --clay-purple: #A78BFA;
+    --clay-green: #34D399;
+    --clay-yellow: #FBBF24;
+    --clay-orange: #FB923C;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Figtree', 'Noto Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Claymorphism Base - Soft 3D Effect */
+  .clay {
+    background: var(--clay-white);
+    border-radius: var(--radius);
+    border: 3px solid var(--clay-blue);
+    box-shadow: 
+      8px 8px 0px var(--clay-shadow-dark),
+      -4px -4px 0px var(--clay-shadow-light),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Claymorphism Card */
+  .clay-card {
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+    border-radius: 1.5rem;
+    border: 3px solid #60A5FA;
+    box-shadow: 
+      10px 10px 0px rgba(96, 165, 250, 0.3),
+      -5px -5px 0px rgba(255, 255, 255, 0.9),
+      inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease-out;
+  }
+  
+  .clay-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      14px 14px 0px rgba(96, 165, 250, 0.4),
+      -7px -7px 0px rgba(255, 255, 255, 0.9),
+      inset 4px 4px 8px rgba(255, 255, 255, 0.8);
+  }
+  
+  .clay-card.no-hover:hover {
+    transform: none;
+    box-shadow: 
+      10px 10px 0px rgba(96, 165, 250, 0.3),
+      -5px -5px 0px rgba(255, 255, 255, 0.9),
+      inset 3px 3px 6px rgba(255, 255, 255, 0.8);
+  }
+  
+  /* Claymorphism Button */
+  .clay-btn {
+    background: linear-gradient(145deg, #60A5FA, #3B82F6);
+    border-radius: 1rem;
+    border: 3px solid #2563EB;
+    box-shadow: 
+      4px 4px 0px rgba(37, 99, 235, 0.4),
+      -2px -2px 0px rgba(255, 255, 255, 0.8),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 600;
+    transition: all 0.15s ease-out;
+  }
+  
+  .clay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      6px 6px 0px rgba(37, 99, 235, 0.5),
+      -3px -3px 0px rgba(255, 255, 255, 0.8),
+      inset 3px 3px 6px rgba(255, 255, 255, 0.4);
+  }
+  
+  .clay-btn:active {
+    transform: translateY(2px);
+    box-shadow: 
+      2px 2px 0px rgba(37, 99, 235, 0.4),
+      inset 3px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Claymorphism Outline Button */
+  .clay-btn-outline {
+    background: linear-gradient(145deg, #ffffff, #f0f8ff);
+    border-radius: 1rem;
+    border: 3px solid #3B82F6;
+    box-shadow: 
+      4px 4px 0px rgba(96, 165, 250, 0.3),
+      -2px -2px 0px rgba(255, 255, 255, 0.9);
+    color: #3B82F6;
+    font-weight: 600;
+    transition: all 0.15s ease-out;
+  }
+  
+  .clay-btn-outline:hover {
+    background: linear-gradient(145deg, #EFF6FF, #DBEAFE);
+    transform: translateY(-2px);
+    box-shadow: 
+      6px 6px 0px rgba(96, 165, 250, 0.4),
+      -3px -3px 0px rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Claymorphism Input */
+  .clay-input {
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 1rem;
+    border: 3px solid #93C5FD;
+    box-shadow: 
+      inset 3px 3px 6px rgba(0, 0, 0, 0.05),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease-out;
+  }
+  
+  .clay-input:focus {
+    border-color: #3B82F6;
+    box-shadow: 
+      inset 3px 3px 6px rgba(0, 0, 0, 0.05),
+      inset -2px -2px 4px rgba(255, 255, 255, 0.8),
+      0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+  }
+  
+  /* Claymorphism Badge */
+  .clay-badge {
+    background: linear-gradient(145deg, #FEF3C7, #FDE68A);
+    border-radius: 2rem;
+    border: 2px solid #F59E0B;
+    box-shadow: 
+      3px 3px 0px rgba(245, 158, 11, 0.3),
+      -2px -2px 0px rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 0.75rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #000000;
+  }
+  
+  /* Claymorphism Accent Colors */
+  .clay-pink {
+    background: linear-gradient(145deg, #F9A8D4, #EC4899);
+    border: 3px solid #DB2777;
+  }
+  
+  .clay-green {
+    background: linear-gradient(145deg, #6EE7B7, #10B981);
+    border: 3px solid #059669;
+  }
+  
+  .clay-purple {
+    background: linear-gradient(145deg, #C4B5FD, #8B5CF6);
+    border: 3px solid #7C3AED;
+  }
+  
+  .clay-orange {
+    background: linear-gradient(145deg, #FDBA74, #F97316);
+    border: 3px solid #EA580C;
+  }
+  
+  /* Fun bouncy animation */
+  .bounce-subtle {
+    animation: bounce-subtle 0.6s ease-out;
+  }
+  
+  @keyframes bounce-subtle {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+    50% { transform: translateY(-4px); }
+    70% { transform: translateY(-2px); }
+  }
+  
+  /* Wobble animation for playful elements */
+  .wobble {
+    animation: wobble 2s ease-in-out infinite;
+  }
+  
+  @keyframes wobble {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+  
+  /* Pop animation */
+  .pop {
+    animation: pop 0.3s ease-out;
+  }
+  
+  @keyframes pop {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Gradient primary - Blue theme */
+  .gradient-primary {
+    background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  }
+  
+  .gradient-playful {
+    background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #EC4899 100%);
+  }
+  
+  /* Glass card with clay feel */
+  .glass-clay {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    border: 3px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 
+      8px 8px 0px rgba(59, 130, 246, 0.15),
+      -4px -4px 0px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* View Transitions */
+::view-transition-old(root) {
+  animation: 200ms ease both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 300ms ease both fade-in;
+}
+
+.vt-header {
+  view-transition-name: main-header;
+}
+
+.vt-logo {
+  view-transition-name: logo;
+}
+
+.vt-brand {
+  view-transition-name: brand;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
